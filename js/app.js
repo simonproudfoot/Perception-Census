@@ -15,18 +15,16 @@ var app = new Vue({
         let step1 = gsap.timeline({
             scrollTrigger: {
                 markers: true,
-                toggleActions: 'play pause resume pause',
+              toggleActions: 'play pause resume pause',
                 trigger: '#container',
                 start: 'top top',
                 //
                 end: '+=' + height * 3,
-                //  end: height * 4,
+         
                 scrub: true,
                 pin: true,
                 pinSpacing: true,
-                scrub: 6,
                 onEnter: () => {
-
                     video.play()
                 },
             }
@@ -44,12 +42,9 @@ var app = new Vue({
                 ease: "none"
             },
             scrollTrigger: {
-                //    markers: true,
-                toggleActions: 'restart pause reverse pause',
                 trigger: '#container',
                 start: '+=' + height,
                 endTrigger: '#carousel',
-                //  end: height * 4,
                 scrub: true,
                 pin: true,
                 pinSpacing: true,
@@ -64,12 +59,12 @@ var app = new Vue({
 
         let progressTl = gsap.timeline({
             scrollTrigger: {
-                //    markers: true,
+       
                 toggleActions: 'restart pause reverse pause',
                 trigger: '#container',
                 start: '+=' + height,
                 endTrigger: '#carousel',
-                //  end: height * 4,
+            
                 scrub: true,
                 pin: true,
                 pinSpacing: true,
