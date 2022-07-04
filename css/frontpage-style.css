@@ -8,6 +8,14 @@ body {
 
 
 
+.front-page-item-new {
+    position: absolute;
+    height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
 
 .responsive-nav-bar.open-bar {
     z-index: 999 !important;
@@ -75,7 +83,6 @@ body {
 .videoSection {
     overflow: hidden;
     position: absolute;
- //   top: 100vh;
     width: 100%;
     left: 0;
     right: 0;
@@ -109,19 +116,23 @@ body {
     position: relative;
 }
 
-.front-page-item {
+.front-page-item-new {
     position: absolute;
     height: 100vh;
     margin-left: auto;
     margin-right: auto;
     left: 0;
+    max-width: 950px;
     right: 0;
-
+    top: 0;
+    bottom: 0;
+    height: fit-content;
+    margin: auto;
 }
 
 .textBlock {
     height: 100vh;
-    border: 1px red dashed;
+
     width: 100%;
     display: block;
     opacity: 0;
