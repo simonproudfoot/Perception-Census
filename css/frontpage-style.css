@@ -6,6 +6,19 @@ body {
     /* W3C */
 }
 
+.hero {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+    padding: 2em;
+}
+
+.front-page-item {
+    max-width: 750px;
+    width: unset;
+}
+
 .embed-container {
     position: relative;
     padding-bottom: 56.25%;
@@ -80,11 +93,12 @@ body {
     height: 60%;
 }
 
-.progress__top{
+.progress__top {
     top: -30px;
     position: absolute;
 }
-.progress__bottom{
+
+.progress__bottom {
     bottom: -30px;
     position: absolute;
 }

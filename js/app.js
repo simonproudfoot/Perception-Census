@@ -49,7 +49,7 @@ var app = new Vue({
                 pin: true,
                 pinSpacing: true,
                 scrub: true,
-              
+               
             }
         })
 
