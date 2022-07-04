@@ -10,7 +10,6 @@ body {
 
 
 .responsive-nav-bar.open-bar {
-
     z-index: 999 !important;
 }
 
@@ -76,7 +75,7 @@ body {
 .videoSection {
     overflow: hidden;
     position: absolute;
-    top: 100vh;
+ //   top: 100vh;
     width: 100%;
     left: 0;
     right: 0;

@@ -12,20 +12,21 @@ var app = new Vue({
         let wrapper = document.getElementById('videoSection')
         let width = window.innerWidth;
         let height = window.innerHeight
+   
         let step1 = gsap.timeline({
             scrollTrigger: {
         
              // toggleActions: 'play pause resume pause',
                 trigger: '#container',
                 start: 'top top',
-                //
+                
                 end: '+=' + height * 3,
-         
                 scrub: 2,
                 pin: true,
                 pinSpacing: true,
                 onEnter: () => {
                     video.play()
+                    video.currentTime = 0
                 },
                 onLeave:() => {
                     video.pause()
@@ -33,9 +34,9 @@ var app = new Vue({
                 },
             }
         })
-
+        gsap.set(wrapper, {top: '85%'})
         step1.to(wrapper, { y: -height - 100, duration: 3 })
-        step1.fromTo(wrapper, { opacity: 0.3, borderRadius: "100%", height: width }, { y: -height, duration: 3, borderRadius: "0%", opacity: 1, height: '100vh' })
+        step1.fromTo(wrapper, { opacity: 0.3, borderRadius: "100%", height: width }, { y: '-85%', duration: 3, borderRadius: "0%", opacity: 1, height: '100vh' })
       
        
         step1.to(".hero", {
@@ -90,6 +91,7 @@ var app = new Vue({
         playClick(){
             
             let video = document.getElementById('player')
+            video.currentTime = 0
             video.muted = !video.muted;
 
         }
