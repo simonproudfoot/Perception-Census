@@ -23,12 +23,9 @@
 
 <body>
     <div id="container">
-
-
-
         <nav v-show="menuOpen">
             <!-- Primary Navigation Menu -->
-            <div class="nav-bar fixed top-0 left-0 w-full">
+            <div class="nav-bar w-full fixed z-10">
                 <!-- main site-->
                 <div class="hidden lg:flex items-center">
                     <img src="img/uos_logo.svg" width="53" height="47" />
@@ -79,54 +76,62 @@
             </div>
         </nav>
 
-        <main style="padding-top: 100vh">
+        <main class="w-full p-0">
+            <header class="step-1" style="height: 100vh">
+                <div class="hero ">
+                    <img src="img/pc-big-logo.svg" />
+                </div>
+                <section id="videoSection" class="videoSection relative">
+                    <button onclick="playClick();" id="play-button"
+                        class="play-button left-0 right-0 mx-auto z-10 absolute bottom-0"><img
+                            src="img/front-page-play.svg"></button>
 
-            <div class="hero fixed left-0 top-0">
-                <img src="img/pc-big-logo.svg" />
-            </div>
+                    <video class="player" id="player" plays-inline muted>
+                        <source src="video.mp4" type="video/mp4">
+                    </video>
+                </section>
+                <div style="position: fixed; bottom: 50px; left: 50px;">
+                    <p style="font-size: 12px; margin-bottom: 3px">Part of</p>
+                    <img src="img/footer/unboxed.png" style="height: 50px;" />
+                </div>
+            </header> 
 
-            <section id="videoSection" class="videoSection relative">
-                <button onclick="playClick();" id="play-button" class="play-button left-0 right-0 mx-auto z-10 absolute bottom-0"><img
-                        src="img/front-page-play.svg"></button>
+      
 
-                <video class="player" id="player" plays-inline muted>
-                    <source src="video.mp4" type="video/mp4">
-                </video>
+            <section id="textScroller">
 
+                <div class="progress white absolute left h-full  w-10 border">
+                    <div class="progress__bar"></div>
+                </div>
 
+                <div class="">
+                    <div class="front-page-item">
+                        <h5>Welcome to the Perception Census!</h5>
+                        <p>You are about to take part in one one of the largest scientific studies on neurodiversity
+                            ever
+                            undertaken.
+                            Brought together by a team of scientists and philosophers from the Universities of Sussex
+                            and
+                            Glasgow, you’ll learn
+                            about perception and explore how differently we each experience the world around us. </p>
+                    </div>
 
+                    <div class="front-page-item">
+                        <h5>Let’s get started</h5>
+                        <p>From your laptop or desktop computer, you’ll complete a series of fun interactive tasks
+                            exploring
+                            colour, music, time, illusion and more. </p>
+                        <p>What will be discovered? What will we learn? Your participation, along with thousands of
+                            others,
+                            could rewrite how we understand the world around us.
+                            Initial results will be revealed this Autumn.
+                        </p>
+                    </div>
+                </div>
             </section>
-            <div style="position: fixed; bottom: 50px; left: 50px;">
-                <p style="font-size: 12px; margin-bottom: 3px">Part of</p>
-                <img src="img/footer/unboxed.png" style="height: 50px;" />
-            </div>
 
 
-
-
-            <div id="textScroller " class="border">
-                <section class="front-page-item">
-                    <h5>Welcome to the Perception Census!</h5>
-                    <p>You are about to take part in one one of the largest scientific studies on neurodiversity ever
-                        undertaken.
-                        Brought together by a team of scientists and philosophers from the Universities of Sussex and
-                        Glasgow, you’ll learn
-                        about perception and explore how differently we each experience the world around us. </p>
-                </section>
-
-                <section class="front-page-item">
-                    <h5>Let’s get started</h5>
-                    <p>From your laptop or desktop computer, you’ll complete a series of fun interactive tasks exploring
-                        colour, music, time, illusion and more. </p>
-                    <p>What will be discovered? What will we learn? Your participation, along with thousands of others,
-                        could rewrite how we understand the world around us.
-                        Initial results will be revealed this Autumn.
-                    </p>
-                </section>
-            </div>
-
-
-            <section class="front-page-sections">
+            <section id="carousel" class="front-page-sections">
                 <h5>What are some of the topics I can learn about?</h5>
                 <div class="circle-task" style="background-image:url('img/section-images/mini/ask-experts.png')">
                     <span class="fixed-title">Fundamentals of Perception</span>
@@ -230,11 +235,6 @@
         height: 100%;
     }
 
-    #maskRect1 {
-        transform: translateX(0);
-        /* MAGIC!? */
-    }
-
     .player {
         width: 100%;
         height: 100%;
@@ -243,10 +243,64 @@
 
     .videoSection {
         overflow: hidden;
-        position: relative;
-        
+        position: absolute;
+        top: 100vh;
         width: 100%;
+        left: 0;
+        right: 0;
         border-radius: 100%;
+    }
+
+    #textScroller {
+    
+        height: 100vh;
+        width: 100%;
+        background-image: url('img/background-1.jpeg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: relative;
+
+    }
+
+
+
+    .front-page-item {
+        position: absolute;
+        height: 100vh;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+    
+    }
+
+    .textBlock {
+        height: 100vh;
+        border: 1px red dashed;
+        width: 100%;
+        display: block;
+        opacity: 0;
+
+    }
+
+    .progress{
+        position: absolute;
+        left: 30px;
+        bottom: 0;
+        top: 0;
+        margin: auto;
+        width: 100px;
+        height: 60%;
+    }
+    
+    .progress__bar {
+        transform-origin: bottom left;
+        bottom: 0;
+        width: 20px;
+        height: 0%;
+        background-color: #fff;
+        position: absolute;
 
     }
 </style>
