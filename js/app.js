@@ -14,14 +14,14 @@ var app = new Vue({
         let height = window.innerHeight
         let step1 = gsap.timeline({
             scrollTrigger: {
-                markers: true,
-              toggleActions: 'play pause resume pause',
+             
+             // toggleActions: 'play pause resume pause',
                 trigger: '#container',
                 start: 'top top',
                 //
                 end: '+=' + height * 3,
          
-                scrub: true,
+                scrub: 2,
                 pin: true,
                 pinSpacing: true,
                 onEnter: () => {
