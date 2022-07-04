@@ -1,5 +1,5 @@
 var app = new Vue({
-    el: '#container',
+    el: '#app',
     data() {
         return {
             menuOpen: true,
@@ -43,9 +43,10 @@ var app = new Vue({
         }, '-=6')
         
         step1.to(wrapper, { duration: 10 })
-
         step1.from("#play-button", {bottom: -20, opacity: 0,  duration: 2},'-=10')
 
+
+        
         gsap.set('.front-page-item', { opacity: 0, top: 200 })
         let step2 = gsap.timeline({
             defaults: {
@@ -65,15 +66,13 @@ var app = new Vue({
 
         step2.to('.front-page-item', { top: 0, stagger: 2, opacity: 1, delay: 0, duration: 1 })
         step2.to('.front-page-item', { top: -100, stagger: 2, opacity: 0, duration: 1, }, '-=1')
-
-
         let progressTl = gsap.timeline({
             scrollTrigger: {
-                toggleActions: 'restart pause reverse pause',
+               // toggleActions: 'restart pause reverse pause',
                 trigger: '#container',
                 start: '+=' + height,
                 endTrigger: '#carousel',
-                scrub: true,
+              
                 pin: true,
                 pinSpacing: true,
                 scrub: 2,

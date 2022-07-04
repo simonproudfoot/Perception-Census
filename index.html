@@ -23,8 +23,9 @@
 </head>
 
 <body>
-    <div id="container">
-        <nav v-show="menuOpen">
+
+    <div id="app">
+        <nav v-show="menuOpen" class="block w-full fixed z-50 ">
             <!-- Primary Navigation Menu -->
             <div class="nav-bar w-full fixed z-10">
                 <!-- main site-->
@@ -32,28 +33,28 @@
                     <img src="img/uos_logo.svg" width="53" height="47" />
                     <img src="img/glasgow-logo.svg" width="130" height="40" style="height: 40px; margin-left: 42px" />
                 </div>
-
+        
                 <!-- Logo and main buttons-->
                 <div class="logo-container">
                     <img src="img/logo.svg" alt="dreammachine logo" />
                     <span>The Perception Census</span>
                 </div>
-
+        
                 <!-- Login/logout-->
                 <div class="hidden lg:flex justify-end">
                     <a class="nav-link psButton" href="login.html" style="margin-right: 40px">
                         Get started
                     </a>
-
+        
                     <button @click="open = true" class="inline-flex items-center justify-center p-2 rounded-lg">
                         <img src="img/menu-dots-h.svg" />
                     </button>
                 </div>
             </div>
-
+        
             <!-- Responsive Navigation Menu -->
             <div :class="open ? 'open-bar' : ''" class="responsive-nav-bar ">
-
+        
                 <div class="responsive-items">
                     <div class="flex justify-end">
                         <button @click="open = false" class="inline-flex items-center justify-center p-2 rounded-lg">
@@ -69,7 +70,7 @@
                     <a class="responsive-nav-link" href="contact.html">
                         Get in Touch
                     </a>
-
+        
                     <div style="text-center">
                         <a class="psButton psButton--white" href="https://dreamachine.world/">Dreamachine Website →</a>
                     </div>
@@ -77,17 +78,18 @@
             </div>
         </nav>
 
-        <main class="w-full p-0">
+
+        <main id="container" class="w-full p-0">
             <header class="step-1" style="height: 100vh">
                 <div class="hero ">
                     <img src="img/pc-big-logo.svg" />
                 </div>
                 <section id="videoSection" class="videoSection relative">
-                    <button @click="playClick" id="play-button"
+                    <button onclick="playClick();" id="play-button"
                         class="play-button left-0 right-0 mx-auto z-10 absolute bottom-0"><img
                             src="img/front-page-play.svg"></button>
 
-                    <video class="player" id="player"  loop muted playsinline plays-inline muted>
+                    <video class="player" id="player" loop muted playsinline plays-inline muted>
                         <source src="video.mp4" type="video/mp4">
                     </video>
                 </section>
