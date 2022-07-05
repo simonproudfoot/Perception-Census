@@ -88,6 +88,7 @@ var app = new Vue({
             }
         })
         gsap.set(wrapper, { top: '60%' })
+        step1.to('.loading-center',{opacity: 0, duration: 0.5})
         step1.to(wrapper, { y: -this.windowHeight / 2, duration: 3 })
         step1.fromTo(wrapper, { opacity: 0.3, borderRadius: "100%", height: window.innerWidth }, { y: '-60%', duration: 3, borderRadius: "0%", opacity: 1, height: '100vh' })
         step1.to(".hero", {
@@ -109,6 +110,7 @@ var app = new Vue({
                 scrub: true,
             }
         })
+        
         gsap.set('.front-page-item-new', { opacity: 0, yPercent: 20 })
         step2.to('.front-page-item-new', { yPercent: 0, stagger: 2, opacity: 1, delay: 0, duration: 1 })
         step2.to('.front-page-item-new', { yPercent: -20, stagger: 2, opacity: 0, duration: 1, }, '-=2')
@@ -137,8 +139,8 @@ var app = new Vue({
         let player = document.getElementById('player')
         player.onloadeddata = () => {
             URL.revokeObjectURL(this.src);
-            this.loading = false
             document.body.style.overflow = 'scroll'
+            this.loading = false
         }
     },
     components: {
