@@ -44,7 +44,14 @@ var app = new Vue({
             },]
         }
     },
+
+    
     mounted() {
+
+       
+
+
+
         this.windowWidth = window.innerWidth;
         this.windowHeight = document.getElementById('sizeRef').clientHeight
         window.addEventListener("resize", this.resizeElements);
@@ -118,7 +125,14 @@ var app = new Vue({
         progressTl.to('.progress__bar', { height: '100%', transformOrigin: "0px 0px" });
     },
     created() {
-
+        var video = document.getElementById('vsource');
+        let videoNode = document.getElementById('player')
+        var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        if (isMobile) {
+            videoNode.src = 'video-small.mp4';
+        } else {
+            videoNode.src = 'video-orig.mp4';
+        }
     },
     components: {
         'carousel-3d': Carousel3d.Carousel3d,
