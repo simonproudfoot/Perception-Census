@@ -33,7 +33,7 @@
                     <img src="img/glasgow-logo.svg" width="130" height="40" style="height: 40px; margin-left: 42px" />
                 </div>
                 <!-- Logo and main buttons-->
-                <div class="logo-container text-left  block" style="z-index: 9999 !important">
+                <div class="logo-container text-left block" style="z-index: 9999 !important">
                     <img src="img/logo.svg" alt="dreammachine logo" />
                     <span class="text-left leading-tight">The Perception Census</span>
                 </div>
@@ -77,10 +77,11 @@
 
                 <div class="absolute  bottom-10 left-10">
                     <p style="font-size: 12px; margin-bottom: 3px">Part of</p>
+                    {{showPlay}}
                     <img src="img/footer/unboxed.png" style="height: 50px;" />
                 </div>
                 <div class="hero ">
-                    <img class="block lg:hidden" src="img/hero-mobile.svg" />
+
                     <img class="hidden lg:block" src="img/pc-big-logo.svg" />
                 </div>
                 <section id="videoSection" class="videoSection relative">
@@ -90,10 +91,9 @@
                     </video>
                 </section>
 
-
-                <div class="buttonWrap">
-                    <button @click="playClick();" id="play-button" class="play-button 0">
-                        <img src="img/front-page-play.svg" />
+                <div class="buttonWrap absolute left-0 w-full text-center " style="bottom: -250px;">
+                    <button @click="playClick();" id="play-button" class="play-button" style="width: 200px; height: 200px">
+                        <img  v-if="showPlay" width="200" height="200" src="img/front-page-play.svg" />
                     </button>
                 </div>
             </header>
@@ -140,11 +140,14 @@
                     </div>
                 </div>
             </section>
-            <section id="carousel" class="front--sections w-full py-40 text-center">
+            <section id="carousel"
+                class="front--sections w-full text-center flex h-screen justify-center items-center">
+                <div class="w-full">
                 <h5 class="text-4xl mb-12">What are some of the topics I can learn about?</h5>
                 <div class="mb-12">
                     <carousel-3d class="mb-12" count="9" display="9" :controls-visible="true" :width="slideSize"
-                        :height="slideSize" perspective="1" :space="slideSpace" :border="0" style="width: 100% !important">
+                        :height="slideSize" perspective="1" :space="slideSpace" :border="0"
+                        style="width: 100% !important">
                         <slide v-for="(slide, i) in slides" :index="i" :key="i" class="rounded-full overflow-hidden">
                             <img :src="slide.img" :alt="slide.title" class="h-full w-full object-cover top-0 absolute">
                             <h5
@@ -157,6 +160,7 @@
                 <a class="nav-link psButton large " href="login.html">
                     Get started
                 </a>
+            </div>
             </section>
 
         </main>
