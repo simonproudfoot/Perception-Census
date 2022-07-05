@@ -45,11 +45,10 @@ var app = new Vue({
         }
     },
     mounted() {
-
-
+        window.addEventListener("resize", this.resizeElements);
         this.windowWidth = window.innerWidth;
         this.windowHeight = document.getElementById('sizeRef').clientHeight
-        window.addEventListener("resize", this.resizeElements);
+
         //spin button
         gsap.to('.play-button', { rotation: "360", ease: Linear.easeNone, repeat: -1 })
         // header step 1
@@ -69,27 +68,38 @@ var app = new Vue({
                     video.play()
                     video.currentTime = 0
                     this.showPlay = true
+
+
                 },
                 onLeave: () => {
                     video.pause()
                     video.currentTime = 0
                     video.muted = true
                     this.showPlay = true
+
                 },
                 onEnterBack: () => {
                     video.play()
                     this.showPlay = true
+
                 },
             }
         })
         gsap.set(wrapper, { top: '60%' })
-        step1.to(wrapper, { y: -this.windowHeight / 2 - 100, duration: 3 })
-        step1.fromTo(wrapper, { opacity: 0.3, borderRadius: "100%", height: this.windowWidth }, { y: '-60%', duration: 3, borderRadius: "0%", opacity: 1, height: '100vh' })
+        step1.to('.loading-center', { opacity: 0, duration: 1 })
+        if (window.innerWidth < 600) {
+            step1.to(wrapper, { y: -this.windowHeight / 3 - 100, duration: 3 })
+        }else{
+            step1.to(wrapper, { y: -this.windowHeight / 2 - 100, duration: 3 })
+        }
+
+        step1.fromTo(wrapper, { opacity: 0.3, borderRadius: "100%", height: this.windowWidth }, { y: window.innerWidth < 600 ? '-60%' : '-60%', duration: 3, borderRadius: "0%", opacity: 1, height: window.innerWidth < 600 ? '100vh' : '100vh' })
         step1.to(".hero", {
             y: -this.windowHeight / 2, opacity: 0, ease: "none", duration: 4,
         }, '-=6')
         step1.to(wrapper, { duration: 10 })
         step1.to(".buttonWrap", { y: -this.windowHeight / 2 - 100, opacity: 1, duration: 2 }, '-=12')
+
         let step2 = gsap.timeline({
             defaults: {
                 ease: "none"
@@ -136,12 +146,14 @@ var app = new Vue({
         resizeElements() {
             this.windowWidth = window.innerWidth;
             this.windowHeight = document.getElementById('sizeRef').clientHeight
+
+            
         },
         playClick() {
-            this.showPlay = false
             let video = document.getElementById('player')
             video.currentTime = 0
             video.muted = !video.muted;
+            this.showPlay = false
         }
     }
 })

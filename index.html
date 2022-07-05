@@ -29,7 +29,6 @@
 <body>
 
     <div id="app">
-
         <nav v-show="menuOpen" class="block w-full fixed z-40 ">
             <!-- Primary Navigation Menu -->
             <div class="nav-bar w-full fixed  z-10">
@@ -48,7 +47,7 @@
                     <a class="lg:block nav-link psButton" href="login.html" style="margin-right: 40px">
                         Get started
                     </a>
-                    <button @click="open = true" class="inline-flex  items-center justify-center p-2 rounded-lg">
+                    <button @click="open = true" class="inline-flex items-center justify-center p-2 rounded-lg">
                         <img src="img/menu-dots-h.svg" />
                     </button>
                 </div>
@@ -79,7 +78,7 @@
             </div>
         </nav>
         <main id="container" class="w-full p-0">
-            <header class="step-1 overflow-hidden h-screen">
+            <header class="step-1 overflow-hidden h-100 md:h-screen">
                 <div class="absolute hidden md:block bottom-10 left-10">
                     <p style="font-size: 12px; margin-bottom: 3px">Part of</p>
                     <img src="img/footer/unboxed.png" style="height: 50px;" />
@@ -87,21 +86,22 @@
                 <div class="hero">
                     <img src="img/pc-big-logo.svg" />
                 </div>
-                <section id="videoSection" class="videoSection relative">
+                <section id="videoSection" class="videoSection relative"  @click="playClick">
                     <video poster="img/poster.jpg" class="player" id="player" loop muted playsinline plays-inline muted>
                         <source :src="isMobile ? 'video-small.mp4' : 'video-orig.mp4'" type="video/mp4">
-                      
-                        <track label="English subtitles" kind="subtitles" srclang="en" src="englishanimationsubtitles.vtt">
+
+                        <track label="English subtitles" kind="subtitles" srclang="en"
+                            src="englishanimationsubtitles.vtt">
                         <track label="Welsh subtitles" kind="subtitles" srclang="cy" src="welshanimationsubtitles.vtt">
                     </video>
                 </section>
-                <div class="buttonWrap absolute left-0 w-full text-center " style="bottom: -250px;">
-                    <button @click="playClick();" id="play-button" class="play-button"
+                <div class="buttonWrap absolute left-0 w-full text-center pointer-events-none" style="bottom: -250px;">
+                    <button id="play-button" class="play-button"
                         style="width: 200px; height: 200px">
                         <img v-if="showPlay" width="200" height="200" src="img/front-page-play.svg" />
                     </button>
                 </div>
-                <div class="loading-center absolute bottom-16 z-50 md:hidden">
+                <div class="loading-center absolute bottom-20 z-50 md:hidden">
                     <div class="icon-scroll">
                     </div>
                 </div>
@@ -150,22 +150,20 @@
             </section>
             <section id="carousel" class="front--sections w-full text-center flex h-screen justify-center items-center">
                 <div class="w-full py-20">
-                    <h5 class="text-base lg:text-4xl mb-12">What are some of the topics I can learn about?</h5>
+                    <h5 class="text-base lg:text-4xl mb-12 px-6">What are some of the topics I can learn about?</h5>
                     <div class="mb-12">
                         <carousel-3d class="mb-12" count="9" display="9" :controls-visible="true"
                             :width="windowWidth > 600 ? slideSize : 300" :height="windowWidth >600 ? slideSize : 300"
                             perspective="1" :space="slideSpace" :border="0" style="width: 100% !important">
                             <slide v-for="(slide, i) in slides" :index="i" :key="i"
-                                class="rounded-full overflow-hidden">
+                                class="rounded-full overflow-hidden" >
                                 <img :src="slide.img" :alt="slide.title"
                                     class="h-full w-full object-cover top-0 absolute">
-                                <h5
-                                    class="fixed-title top-0 bottom-0 h-8 text-center w-full  m-auto text-center absolute p hidden">
-                                    {{slide.title}}</h5>
+                                <h5 class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">{{slide.title}}</h5>
                             </slide>
                         </carousel-3d>
                     </div>
-                    <a class="nav-link psButton large " href="login.html">
+                    <a class="nav-link psButton  " href="login.html">
                         Get started
                     </a>
                 </div>
