@@ -94,6 +94,7 @@ body {
     left: 0;
     right: 0;
     border-radius: 100%;
+        overflow: hidden;
 }
 
 #play-button {
@@ -117,22 +118,12 @@ body {
     width: 100%;
     position: relative;
     overflow: hidden;
-}
-
-.parallax {
     background-image: url('../img/background-1.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: bottom center;
-    height: 110%;
-    width: 100%;
-    position: absolute;
-    bottom: -10%;
-    left: 0;
-    right: 0;
-    margin: auto;
-    display: block;
 }
+
+
 
 .front-page-item-new {
     position: absolute;
