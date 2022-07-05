@@ -2,6 +2,7 @@ var app = new Vue({
     el: '#app',
     data() {
         return {
+            loading: true,
             menuOpen: true,
             open: false,
             count: 10,
@@ -45,10 +46,10 @@ var app = new Vue({
         }
     },
 
-    
+
     mounted() {
 
-       
+
 
 
 
@@ -127,11 +128,17 @@ var app = new Vue({
     created() {
         var video = document.getElementById('vsource');
         let videoNode = document.getElementById('player')
-        var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        var isMobile = /iPhone|iPod|Android/i.test(navigator.userAgent);
         if (isMobile) {
             videoNode.src = 'video-small.mp4';
         } else {
             videoNode.src = 'video-orig.mp4';
+        }
+        let player = document.getElementById('player')
+        player.onloadeddata = () => {
+            URL.revokeObjectURL(this.src);
+            this.loading = false
+            document.body.style.overflow = 'scroll'
         }
     },
     components: {
