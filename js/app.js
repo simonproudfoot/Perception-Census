@@ -2,7 +2,6 @@ var app = new Vue({
     el: '#app',
     data() {
         return {
-            loading: true,
             menuOpen: true,
             open: false,
             count: 10,
@@ -45,12 +44,7 @@ var app = new Vue({
             },]
         }
     },
-
-
     mounted() {
-
-
-
 
 
         this.windowWidth = window.innerWidth;
@@ -61,9 +55,10 @@ var app = new Vue({
         // header step 1
         let video = document.getElementById('player')
         let wrapper = document.getElementById('videoSection')
+
         let step1 = gsap.timeline({
             scrollTrigger: {
-              
+                // toggleActions: 'play pause resume pause',
                 trigger: '#container',
                 start: 'top top',
                 end: '+=' + this.windowHeight * 3,
@@ -74,7 +69,6 @@ var app = new Vue({
                     video.play()
                     video.currentTime = 0
                     this.showPlay = true
-                    step1.set('.loading-center',{opacity: 0})
                 },
                 onLeave: () => {
                     video.pause()
@@ -85,13 +79,12 @@ var app = new Vue({
                 onEnterBack: () => {
                     video.play()
                     this.showPlay = true
-                    step1.set('.loading-center',{opacity: 1})
                 },
             }
         })
         gsap.set(wrapper, { top: '60%' })
-        step1.to(wrapper, { y: -this.windowHeight / 2, duration: 3 })
-        step1.fromTo(wrapper, { opacity: 0.3, borderRadius: "100%", height: window.innerWidth }, { y: '-60%', duration: 3, borderRadius: "0%", opacity: 1, height: '100vh' })
+        step1.to(wrapper, { y: -this.windowHeight / 2 - 100, duration: 3 })
+        step1.fromTo(wrapper, { opacity: 0.3, borderRadius: "100%", height: this.windowWidth }, { y: '-60%', duration: 3, borderRadius: "0%", opacity: 1, height: '100vh' })
         step1.to(".hero", {
             y: -this.windowHeight / 2, opacity: 0, ease: "none", duration: 4,
         }, '-=6')
@@ -110,10 +103,8 @@ var app = new Vue({
                 pinSpacing: true,
                 scrub: true,
 
-                
             }
         })
-        
         gsap.set('.front-page-item-new', { opacity: 0, yPercent: 20 })
         step2.to('.front-page-item-new', { yPercent: 0, stagger: 2, opacity: 1, delay: 0, duration: 1 })
         step2.to('.front-page-item-new', { yPercent: -20, stagger: 2, opacity: 0, duration: 1, }, '-=2')
@@ -129,35 +120,22 @@ var app = new Vue({
             }
         });
         progressTl.to('.progress__bar', { height: '100%', transformOrigin: "0px 0px" });
+
     },
-    created() {
-        var video = document.getElementById('vsource');
-        let videoNode = document.getElementById('player')
-        var isMobile = /iPhone|iPod|Android/i.test(navigator.userAgent);
-        if (isMobile) {
-            videoNode.src = 'video-small.mp4';
-        } else {
-            videoNode.src = 'video-orig.mp4';
-        }
-        let player = document.getElementById('player')
-        player.onloadeddata = () => {
-            URL.revokeObjectURL(this.src);
-            document.body.style.overflow = 'scroll'
-            this.loading = false
-        }
-    },
+
     components: {
         'carousel-3d': Carousel3d.Carousel3d,
         'slide': Carousel3d.Slide
     },
+    computed: {
+        isMobile() {
+            return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        }
+    },
     methods: {
-
         resizeElements() {
-            location.reload();
             this.windowWidth = window.innerWidth;
             this.windowHeight = document.getElementById('sizeRef').clientHeight
-            let wrapper = document.getElementById('videoSection')
-            gsap.set(wrapper, { height: window.innerWidth })
         },
         playClick() {
             this.showPlay = false
