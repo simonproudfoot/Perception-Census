@@ -42,6 +42,10 @@ var app = new Vue({
         }
     },
     mounted() {
+
+        //spin button
+
+        gsap.to('.play-button', {rotation:"360", ease:Linear.easeNone, repeat:-1})
         // header step 1
         let video = document.getElementById('player')
         let wrapper = document.getElementById('videoSection')
@@ -62,6 +66,10 @@ var app = new Vue({
                 onLeave: () => {
                     video.pause()
                     video.currentTime = 0
+                    video.muted = true
+                },
+                onEnterBack: () => {
+                    video.play()
                 },
             }
         })
@@ -72,7 +80,7 @@ var app = new Vue({
             y: -this.windowHeight / 2, opacity: 0, ease: "none", duration: 4,
         }, '-=6')
         step1.to(wrapper, { duration: 10 })
-        step1.from("#play-button", { bottom: -20, opacity: 0, duration: 2 }, '-=10')
+        step1.from("#play-button", { bottom: -20, opacity: 0, duration: 2 }, '-=15')
         let step2 = gsap.timeline({
             defaults: {
                 ease: "none"
