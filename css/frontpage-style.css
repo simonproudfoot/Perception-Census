@@ -1,12 +1,14 @@
 body {
     background: var(--primary);
-    background-image: url('../img/bg_grain.png');
-    /* fallback */
-    background-image: url('../img/bg_grain.png'), linear-gradient(180deg, #05182B 0%, #002952 100%);
+
     /* W3C */
 }
 
-
+header{
+    background-image: url('../img/bg_grain.png');
+    /* fallback */
+    background-image: url('../img/bg_grain.png'), linear-gradient(180deg, #05182B 0%, #002952 100%);
+}
 :root {
     scroll-behavior: smooth;
 }

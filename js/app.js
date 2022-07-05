@@ -46,9 +46,11 @@ var app = new Vue({
     },
     mounted() {
 
+
         this.windowWidth = window.innerWidth;
-        this.windowHeight = window.innerHeight
+        this.windowHeight = document.getElementById('sizeRef').clientHeight
         window.addEventListener("resize", this.resizeElements);
+
         //spin button
         gsap.to('.play-button', { rotation: "360", ease: Linear.easeNone, repeat: -1 })
         // header step 1
@@ -88,7 +90,7 @@ var app = new Vue({
             y: -this.windowHeight / 2, opacity: 0, ease: "none", duration: 4,
         }, '-=6')
         step1.to(wrapper, { duration: 10 })
-        step1.to(".buttonWrap", { y: -this.windowHeight/2-100, opacity: 1, duration: 2 }, '-=12')
+        step1.to(".buttonWrap", { y: -this.windowHeight / 2 - 100, opacity: 1, duration: 2 }, '-=12')
         let step2 = gsap.timeline({
             defaults: {
                 ease: "none"
@@ -101,7 +103,7 @@ var app = new Vue({
                 pin: true,
                 pinSpacing: true,
                 scrub: true,
-              
+
             }
         })
         gsap.set('.front-page-item-new', { opacity: 0, yPercent: 20 })
@@ -132,7 +134,7 @@ var app = new Vue({
         resizeElements() {
             // alert('re')
             this.windowWidth = window.innerWidth;
-            this.windowHeight = window.innerHeight
+            this.windowHeight = document.getElementById('sizeRef').clientHeight
             //    this.slideSize = window.innerWidth   
         },
         playClick() {
