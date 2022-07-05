@@ -6,6 +6,7 @@ var app = new Vue({
             open: false,
             count: 10,
             slideSize: 390,
+            slideSpace: 350,
             windowWidth: 0,
             windowHeight: 0,
             slides: [{
@@ -43,8 +44,10 @@ var app = new Vue({
     },
     mounted() {
 
+        this.windowWidth = window.innerWidth;
+        this.windowHeight = window.innerHeight
+        window.addEventListener("resize", this.resizeElements);
         //spin button
-
         gsap.to('.play-button', {rotation:"360", ease:Linear.easeNone, repeat:-1})
         // header step 1
         let video = document.getElementById('player')
@@ -125,9 +128,7 @@ var app = new Vue({
 
     },
     created() {
-        this.windowWidth = window.innerWidth;
-        this.windowHeight = window.innerHeight
-        window.addEventListener("resize", this.resizeElements);
+       
     },
     components: {
         'carousel-3d': Carousel3d.Carousel3d,

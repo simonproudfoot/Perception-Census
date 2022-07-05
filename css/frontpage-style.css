@@ -250,6 +250,13 @@ body {
 }
 
 
+
+@media only screen and (max-width: 800px) {
+    .carousel-3d-controls{
+        display: none;
+    }
+
+}
 .carousel-3d-controls a span {
     display: none;
 }

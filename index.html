@@ -74,6 +74,11 @@
         </nav>
         <main id="container" class="w-full p-0">
             <header class="step-1 overflow-hidden h-screen">
+
+                <div class="absolute  bottom-10 left-10">
+                    <p style="font-size: 12px; margin-bottom: 3px">Part of</p>
+                    <img src="img/footer/unboxed.png" style="height: 50px;" />
+                </div>
                 <div class="hero ">
                     <img class="block lg:hidden" src="img/hero-mobile.svg" />
                     <img class="hidden lg:block" src="img/pc-big-logo.svg" />
@@ -84,19 +89,16 @@
                         <source src="video.mp4" type="video/mp4">
                     </video>
                 </section>
-                <div style="position: fixed; bottom: 50px; left: 50px;">
-                    <p style="font-size: 12px; margin-bottom: 3px">Part of</p>
-                    <img src="img/footer/unboxed.png" style="height: 50px;" />
-                </div>
+
 
                 <div class="buttonWrap">
                     <button @click="playClick();" id="play-button" class="play-button 0">
-                        <img src="img/front-page-play.svg"/>
-                </button>
+                        <img src="img/front-page-play.svg" />
+                    </button>
                 </div>
             </header>
             <section class="h-screen" id="textScroller">
-            
+
                 <div class="progress absolute left h-full w-10 ">
                     <span class="progress__top">01</span>
                     <div class="progress__line"></div>
@@ -142,7 +144,7 @@
                 <h5 class="text-4xl mb-12">What are some of the topics I can learn about?</h5>
                 <div class="mb-12">
                     <carousel-3d class="mb-12" count="9" display="9" :controls-visible="true" :width="slideSize"
-                        :height="slideSize" perspective="1" space="350" :border="0" style="width: 100% !important">
+                        :height="slideSize" perspective="1" :space="slideSpace" :border="0" style="width: 100% !important">
                         <slide v-for="(slide, i) in slides" :index="i" :key="i" class="rounded-full overflow-hidden">
                             <img :src="slide.img" :alt="slide.title" class="h-full w-full object-cover top-0 absolute">
                             <h5
@@ -158,32 +160,9 @@
             </section>
 
         </main>
-        <!--  <footer>
-            <div style="margin-bottom: 10px">
-                <p>Brought to you by</p>
-                <p>Socials</p>
-            </div>
-            <div style="margin-bottom: 100px">
-                <img src="img/footer/collective-act.png" style="height: 65px;" />
-                <img src="img/footer/unboxed.png" style="height: 100px;" />
-                <div class="socials">
-                    <img src="img/footer/instagram.png" />
-                    <img src="img/footer/youtube.png" />
-                    <img src="img/footer/facebook.png" />
-                    <img src="img/footer/twitter.png" />
-                </div>
-            </div>
-            <p style="margin-bottom: 20px">Supported by</p>
-            <div style="margin-bottom: 100px">
-                <img src="img/footer/cgcw.png" />
-                <img src="img/footer/hm-gov.png" />
-                <img src="img/footer/belfast.png" />
-                <img src="img/footer/event-scotland.png" />
-                <img src="img/footer/ni-executive.png" />
-                <img src="img/footer/scottish-government.png" />
-                <img src="img/footer/welsh-government.png" />
-            </div>
-        </footer> -->
+
+
+
     </div>
     <script src="js/app.js"></script>
 </body>
