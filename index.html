@@ -2,7 +2,6 @@
 <html lang="en">
 <!-- Added by HTTrack -->
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,47 +13,43 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"
         integrity="sha512-VEBjfxWUOyzl0bAwh4gdLEaQyDYPvLrZql3pw1ifgb6fhEvZl9iDDehwHZ+dsMzA0Jfww8Xt7COSZuJ/slxc4Q=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+    <script src="js/vue-carousel.js"></script>
     <script src="js/ScrollTrigger.min.js"></script>
     <link rel='stylesheet' type='text/css' href='css/libc10b.css?id=937a6ec7081d286fb34f4e0c26ab85f3' />
     <link rel='stylesheet' type='text/css' href='css/app462b.css?id=6eb7279e10fe1aa8cb301052e444c444' />
     <link rel='stylesheet' type='text/css' href='css/frontpage-style.css' />
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
-
 <body>
-
     <div id="app">
-        <nav v-show="menuOpen" class="block w-full fixed z-50 ">
+        <nav v-show="menuOpen" class="block w-full fixed z-40 ">
             <!-- Primary Navigation Menu -->
-            <div class="nav-bar w-full fixed z-10">
+            <div class="nav-bar w-full fixed  z-10">
                 <!-- main site-->
                 <div class="hidden lg:flex items-center">
                     <img src="img/uos_logo.svg" width="53" height="47" />
                     <img src="img/glasgow-logo.svg" width="130" height="40" style="height: 40px; margin-left: 42px" />
                 </div>
-
                 <!-- Logo and main buttons-->
-                <div class="logo-container">
+                <div class="logo-container text-left  block" style="z-index: 9999 !important">
                     <img src="img/logo.svg" alt="dreammachine logo" />
-                    <span>The Perception Census</span>
+                    <span class="text-left leading-tight">The Perception Census</span>
                 </div>
-
                 <!-- Login/logout-->
-                <div class="hidden lg:flex justify-end">
-                    <a class="nav-link psButton" href="login.html" style="margin-right: 40px">
+                <div class="lg:flex justify-end hidden z-10">
+                    <a class="lg:block nav-link psButton" href="login.html" style="margin-right: 40px">
                         Get started
                     </a>
-
-                    <button @click="open = true" class="inline-flex items-center justify-center p-2 rounded-lg">
+                    <button @click="open = true" class="inline-flex  items-center justify-center p-2 rounded-lg">
                         <img src="img/menu-dots-h.svg" />
                     </button>
                 </div>
+                <button @click="open = true" class="fixed right-5 top-10 lg:hidden z-50  p-2 ">
+                    <img src="img/menu-dots-h.svg" />
+                </button>
             </div>
-
             <!-- Responsive Navigation Menu -->
-            <div :class="open ? 'open-bar' : ''" class="responsive-nav-bar ">
-
+            <div :class="open ? 'open-bar' : ''" class="responsive-nav-bar block">
                 <div class="responsive-items">
                     <div class="flex justify-end">
                         <button @click="open = false" class="inline-flex items-center justify-center p-2 rounded-lg">
@@ -70,26 +65,21 @@
                     <a class="responsive-nav-link" href="contact.html">
                         Get in Touch
                     </a>
-
-                    <div>
-                        <a class="psButton psButton--white" href="https://dreamachine.world/">Dreamachine Website →</a>
-                    </div>
+                    <a class="psButton ml-auto psButton--white" href="https://dreamachine.world/">Dreamachine Website
+                        →</a>
                 </div>
             </div>
         </nav>
-
-
         <main id="container" class="w-full p-0">
-
             <header class="step-1" style="height: 100vh">
                 <div class="hero ">
-                    <img src="img/pc-big-logo.svg" />
+                    <img class="block lg:hidden" src="img/hero-mobile.svg" />
+                    <img class="hidden lg:block" src="img/pc-big-logo.svg" />
                 </div>
                 <section id="videoSection" class="videoSection relative">
                     <button onclick="playClick();" id="play-button"
                         class="play-button left-0 right-0 mx-auto z-10 absolute bottom-0"><img
                             src="img/front-page-play.svg"></button>
-
                     <video class="player" id="player" loop muted playsinline plays-inline muted>
                         <source src="video.mp4" type="video/mp4">
                     </video>
@@ -99,9 +89,6 @@
                     <img src="img/footer/unboxed.png" style="height: 50px;" />
                 </div>
             </header>
-
-
-
             <section id="textScroller">
                 <div class="parallax"></div>
                 <div class="progress absolute left h-full w-10 ">
@@ -110,7 +97,6 @@
                     <div class="progress__bar"></div>
                     <span class="bottom-0 absolute w-full progress__bottom">02</span>
                 </div>
-
                 <div class="">
                     <div class="front-page-item-new pl-16 lg:pl-0 pr-8 lg:pr-0 text-left lg:text-center">
                         <div class="front-page-item-new__inner ">
@@ -127,7 +113,6 @@
                             </p>
                         </div>
                     </div>
-
                     <div class="front-page-item-new pl-16 lg:pl-0 pr-8 lg:pr-0 text-left lg:text-center">
                         <div class="front-page-item-new__inner ">
                             <h5 class="text-base lg:text-xl">Let’s get started</h5>
@@ -136,7 +121,7 @@
                                 fun interactive tasks
                                 exploring
                                 colour, music, time, illusion and more. </p>
-                                <p class="text-xl lg:text-4xl">What will be discovered? What will we learn? Your
+                            <p class="text-xl lg:text-4xl">What will be discovered? What will we learn? Your
                                 participation,
                                 along with thousands of
                                 others,
@@ -145,52 +130,22 @@
                             </p>
                         </div>
                     </div>
-
                 </div>
             </section>
-
-
-            <section id="carousel" class="front-page-sections">
-                <h5>What are some of the topics I can learn about?</h5>
-                <div class="circle-task" style="background-image:url('img/section-images/mini/ask-experts.png')">
-                    <span class="fixed-title">Fundamentals of Perception</span>
-                </div>
-                <div class="circle-task" style="background-image:url('img/section-images/mini/sound-music.png')">
-                    <span class="fixed-title">Sound and Music</span>
-                </div>
-                <div class="circle-task" style="background-image:url('img/section-images/mini/body-belief.png')">
-                    <span class="fixed-title">Body and Belief</span>
-                </div>
-                <div class="circle-task" style="background-image:url('img/section-images/mini/time.png')">
-                    <span class="fixed-title">Time</span>
-                </div>
-                <div class="circle-task" style="background-image:url('img/section-images/mini/colour.png')">
-                    <span class="fixed-title">Our Colourful World</span>
-                </div>
-                <div class="circle-task" style="background-image:url('img/section-images/mini/digging-deeper.png')">
-                    <span class="fixed-title">Perception: Digging Deeper</span>
-                </div>
-                <div class="circle-task"
-                    style="background-image:url('img/section-images/mini/boundaries-of-perception.png')">
-                    <span class="fixed-title">Boundaries of Perception</span>
-                </div>
-                <div class="circle-task" style="background-image:url('img/section-images/mini/great-expectations.png')">
-                    <span class="fixed-title">Great Expectations</span>
-                </div>
-                <div class="circle-task"
-                    style="background-image:url('img/section-images/mini/power-of-imagination.png')">
-                    <span class="fixed-title">The Power of Imagination</span>
-                </div>
-                <div class="circle-task" style="background-image:url('img/section-images/mini/what-we-see.png')">
-                    <span class="fixed-title">What We See</span>
-                </div>
+            <section id="carousel" class="front--sections w-full py-40 text-center">
+                <h5 class="text-4xl mb-12">What are some of the topics I can learn about?</h5>
+                <carousel-3d count="9" display="9" :controls-visible="true" :width="slideSize" :height="slideSize" perspective="1" space="350" :border="0" style="width: 100% !important">
+                    <slide v-for="(slide, i) in slides" :index="i" class="rounded-full overflow-hidden">
+                        <img :src="slide.img" :alt="slide.title" class="h-full w-full object-cover top-0 absolute">
+                        <h5 class="fixed-title top-0 bottom-0 h-8 text-center w-full  m-auto text-center absolute p hidden">{{slide.title}}</h5>
+                    </slide>
+                </carousel-3d>
+                <a class="nav-link psButton" href="login.html">
+                    Get started
+                </a>
             </section>
-
-            <a class="nav-link psButton" href="login.html">
-                Get started
-            </a>
+           
         </main>
-
         <footer>
             <div style="margin-bottom: 10px">
                 <p>Brought to you by</p>
@@ -218,11 +173,6 @@
             </div>
         </footer>
     </div>
-
     <script src="js/app.js"></script>
 </body>
-
-
-
-
 </html>
