@@ -81,7 +81,7 @@ var app = new Vue({
         })
         gsap.set(wrapper, { top: '60%' })
         step1.to(wrapper, { y: -this.windowHeight / 2, duration: 3 })
-        step1.fromTo(wrapper, { opacity: 0.3, borderRadius: "100%", height:  window.innerWidth }, { y: '-60%', duration: 3, borderRadius: "0%", opacity: 1, height: '100vh' })
+        step1.fromTo(wrapper, { opacity: 0.3, borderRadius: "100%", height: window.innerWidth }, { y: '-60%', duration: 3, borderRadius: "0%", opacity: 1, height: '100vh' })
         step1.to(".hero", {
             y: -this.windowHeight / 2, opacity: 0, ease: "none", duration: 4,
         }, '-=6')
@@ -118,17 +118,19 @@ var app = new Vue({
         progressTl.to('.progress__bar', { height: '100%', transformOrigin: "0px 0px" });
     },
     created() {
+
     },
     components: {
         'carousel-3d': Carousel3d.Carousel3d,
         'slide': Carousel3d.Slide
     },
     methods: {
+
         resizeElements() {
             this.windowWidth = window.innerWidth;
             this.windowHeight = document.getElementById('sizeRef').clientHeight
             let wrapper = document.getElementById('videoSection')
-        gsap.set(wrapper, { height:  window.innerWidth })
+            gsap.set(wrapper, { height: window.innerWidth })
         },
         playClick() {
             this.showPlay = false

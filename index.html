@@ -13,7 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"
         integrity="sha512-VEBjfxWUOyzl0bAwh4gdLEaQyDYPvLrZql3pw1ifgb6fhEvZl9iDDehwHZ+dsMzA0Jfww8Xt7COSZuJ/slxc4Q=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="js/vue-carousel.js"></script>
+    <script src="js/vue-carousel.min.js"></script>
     <script src="js/ScrollTrigger.min.js"></script>
     <link rel='stylesheet' type='text/css' href='css/libc10b.css?id=937a6ec7081d286fb34f4e0c26ab85f3' />
     <link rel='stylesheet' type='text/css' href='css/app462b.css?id=6eb7279e10fe1aa8cb301052e444c444' />
@@ -21,10 +21,10 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, shrink-to-fit=no">
 </head>
-
 <body>
-
+    <div id="loadingScreen" style="height: 100vh; width: 100%; position: fixed; top: 0; left: 0; bottom: 0;  background-color: #000; z-index: 99999; color: #fff">LOADING TEST...</div>
     <div id="app">
+
         <nav v-show="menuOpen" class="block w-full fixed z-40 ">
             <!-- Primary Navigation Menu -->
             <div class="nav-bar w-full fixed  z-10">
@@ -75,23 +75,22 @@
         </nav>
         <main id="container" class="w-full p-0">
             <header class="step-1 overflow-hidden h-screen">
-
                 <div class="absolute  bottom-10 left-10">
                     <p style="font-size: 12px; margin-bottom: 3px">Part of</p>
-
                     <img src="img/footer/unboxed.png" style="height: 50px;" />
                 </div>
                 <div class="hero ">
-
                     <img src="img/pc-big-logo.svg" />
                 </div>
                 <section id="videoSection" class="videoSection relative">
-
                     <video class="player" id="player" loop muted playsinline plays-inline muted>
-                        <source src="video.mp4" type="video/mp4">
+                        
+                        <source src="video-orig.mp4" type="video/mp4">
+                        <source src="video-orig.webm" type="video/webm">
+                        <track label="English subtitles" kind="subtitles" srclang="en" src="englishanimationsubtitles.vtt" >
+                        <track label="Welsh subtitles" kind="subtitles" srclang="cy" src="welshanimationsubtitles.vtt" >
                     </video>
                 </section>
-
                 <div class="buttonWrap absolute left-0 w-full text-center " style="bottom: -250px;">
                     <button @click="playClick();" id="play-button" class="play-button"
                         style="width: 200px; height: 200px">
@@ -100,7 +99,6 @@
                 </div>
             </header>
             <section class="h-screen bg-position-bottom" id="textScroller">
-
                 <div class="progress absolute left h-full w-10 ">
                     <span class="progress__top">01</span>
                     <div class="progress__line"></div>
@@ -159,19 +157,24 @@
                             </slide>
                         </carousel-3d>
                     </div>
-
                     <a class="nav-link psButton large " href="login.html">
                         Get started
                     </a>
                 </div>
             </section>
-
         </main>
-
     </div>
     <!-- USED THIS AS A HACK TO GET ACCURATE clientInnerHeight ON MOBILE SAFARI -->
     <div id="sizeRef" style="height: 100vh; position: fixed; top: 0; bottom: 0; pointer-events: none; visibility:hidden; "></div> 
     <script src="js/app.min.js"></script>
 </body>
-
 </html>
+
+<script>
+    let videoNode = document.getElementById('player')
+    let loadingScreen = document.getElementById('loadingScreen')
+    videoNode.onloadeddata = () => {
+        URL.revokeObjectURL(this.src);
+        loadingScreen.remove()
+    }
+</script>

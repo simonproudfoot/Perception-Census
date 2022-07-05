@@ -278,3 +278,46 @@ header {
 .carousel-3d-controls a span {
     display: none;
 }
+
+video{
+    position: relative;
+}
+video::-webkit-media-text-track-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    /* Style the container */
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  video::-webkit-media-text-track-background {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    /* Style the container */
+    margin: 0px;
+    padding: 0px;
+    /* Style the text background */
+    margin: 0px;
+    padding: 5px;
+    border-radius: 5px;
+    margin: auto;
+    background-color: rgb(200, 200, 200);
+  }
+  
+  video::-webkit-media-text-track-display {
+    /* Style the text itself */
+    font-size: 15px;
+    max-width: 250px;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    /* Style the container */
+    margin: 0px;
+    padding: 0px;
+  }
