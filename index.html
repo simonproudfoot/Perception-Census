@@ -77,12 +77,12 @@
 
                 <div class="absolute  bottom-10 left-10">
                     <p style="font-size: 12px; margin-bottom: 3px">Part of</p>
-              
+
                     <img src="img/footer/unboxed.png" style="height: 50px;" />
                 </div>
                 <div class="hero ">
 
-                    <img class="hidden lg:block" src="img/pc-big-logo.svg" />
+                    <img src="img/pc-big-logo.svg" />
                 </div>
                 <section id="videoSection" class="videoSection relative">
 
@@ -92,8 +92,9 @@
                 </section>
 
                 <div class="buttonWrap absolute left-0 w-full text-center " style="bottom: -250px;">
-                    <button @click="playClick();" id="play-button" class="play-button" style="width: 200px; height: 200px">
-                        <img  v-if="showPlay" width="200" height="200" src="img/front-page-play.svg" />
+                    <button @click="playClick();" id="play-button" class="play-button"
+                        style="width: 200px; height: 200px">
+                        <img v-if="showPlay" width="200" height="200" src="img/front-page-play.svg" />
                     </button>
                 </div>
             </header>
@@ -140,27 +141,28 @@
                     </div>
                 </div>
             </section>
-            <section id="carousel"
-                class="front--sections w-full text-center flex h-screen justify-center items-center" >
-                <div class="w-full">
-                <h5 class="text-4xl mb-12">What are some of the topics I can learn about?</h5>
-                <div class="mb-12">
-                    <carousel-3d class="mb-12" count="9" display="9" :controls-visible="true" :width="slideSize"
-                        :height="slideSize" perspective="1" :space="slideSpace" :border="0"
-                        style="width: 100% !important">
-                        <slide v-for="(slide, i) in slides" :index="i" :key="i" class="rounded-full overflow-hidden">
-                            <img :src="slide.img" :alt="slide.title" class="h-full w-full object-cover top-0 absolute">
-                            <h5
-                                class="fixed-title top-0 bottom-0 h-8 text-center w-full  m-auto text-center absolute p hidden">
-                                {{slide.title}}</h5>
-                        </slide>
-                    </carousel-3d>
-                </div>
+            <section id="carousel" class="front--sections w-full text-center flex h-screen justify-center items-center">
+                <div class="w-full py-20">
+                    <h5 class="text-base lg:text-4xl mb-12">What are some of the topics I can learn about?</h5>
+                    <div class="mb-12">
+                        <carousel-3d class="mb-12" count="9" display="9" :controls-visible="true" :width="windowWidth > 600 ? slideSize : 300"
+                            :height="windowWidth >600 ? slideSize : 300" perspective="1" :space="slideSpace" :border="0"
+                            style="width: 100% !important">
+                            <slide v-for="(slide, i) in slides" :index="i" :key="i"
+                                class="rounded-full overflow-hidden">
+                                <img :src="slide.img" :alt="slide.title"
+                                    class="h-full w-full object-cover top-0 absolute">
+                                <h5
+                                    class="fixed-title top-0 bottom-0 h-8 text-center w-full  m-auto text-center absolute p hidden">
+                                    {{slide.title}}</h5>
+                            </slide>
+                        </carousel-3d>
+                    </div>
 
-                <a class="nav-link psButton large " href="login.html">
-                    Get started
-                </a>
-            </div>
+                    <a class="nav-link psButton large " href="login.html">
+                        Get started
+                    </a>
+                </div>
             </section>
 
         </main>
