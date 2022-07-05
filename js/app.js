@@ -45,10 +45,9 @@ var app = new Vue({
         }
     },
     mounted() {
-        window.addEventListener("resize", this.resizeElements);
         this.windowWidth = window.innerWidth;
         this.windowHeight = document.getElementById('sizeRef').clientHeight
-
+        window.addEventListener("resize", this.resizeElements);
         //spin button
         gsap.to('.play-button', { rotation: "360", ease: Linear.easeNone, repeat: -1 })
         // header step 1
@@ -88,8 +87,8 @@ var app = new Vue({
         gsap.set(wrapper, { top: '60%' })
         step1.to('.loading-center', { opacity: 0, duration: 1 })
         if (window.innerWidth < 600) {
-            step1.to(wrapper, { y: -this.windowHeight / 3 - 100, duration: 3 })
-        }else{
+            step1.to(wrapper, { y: -this.windowHeight / 2 - 100, duration: 3 })
+        } else {
             step1.to(wrapper, { y: -this.windowHeight / 2 - 100, duration: 3 })
         }
 
@@ -146,8 +145,6 @@ var app = new Vue({
         resizeElements() {
             this.windowWidth = window.innerWidth;
             this.windowHeight = document.getElementById('sizeRef').clientHeight
-
-            
         },
         playClick() {
             let video = document.getElementById('player')
