@@ -134,13 +134,16 @@
             </section>
             <section id="carousel" class="front--sections w-full py-40 text-center">
                 <h5 class="text-4xl mb-12">What are some of the topics I can learn about?</h5>
-                <carousel-3d count="9" display="9" :controls-visible="true" :width="slideSize" :height="slideSize" perspective="1" space="350" :border="0" style="width: 100% !important">
+                <div class="mb-12">
+                <carousel-3d class="mb-12" count="9" display="9" :controls-visible="true" :width="slideSize" :height="slideSize" perspective="1" space="350" :border="0" style="width: 100% !important">
                     <slide v-for="(slide, i) in slides" :index="i" class="rounded-full overflow-hidden">
                         <img :src="slide.img" :alt="slide.title" class="h-full w-full object-cover top-0 absolute">
                         <h5 class="fixed-title top-0 bottom-0 h-8 text-center w-full  m-auto text-center absolute p hidden">{{slide.title}}</h5>
                     </slide>
                 </carousel-3d>
-                <a class="nav-link psButton" href="login.html">
+            </div>
+                
+                <a class="nav-link psButton large " href="login.html">
                     Get started
                 </a>
             </section>
