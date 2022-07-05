@@ -45,18 +45,14 @@ var app = new Vue({
         }
     },
     mounted() {
-
-
         this.windowWidth = window.innerWidth;
         this.windowHeight = document.getElementById('sizeRef').clientHeight
         window.addEventListener("resize", this.resizeElements);
-
         //spin button
         gsap.to('.play-button', { rotation: "360", ease: Linear.easeNone, repeat: -1 })
         // header step 1
         let video = document.getElementById('player')
         let wrapper = document.getElementById('videoSection')
-
         let step1 = gsap.timeline({
             scrollTrigger: {
                 // toggleActions: 'play pause resume pause',
@@ -84,8 +80,8 @@ var app = new Vue({
             }
         })
         gsap.set(wrapper, { top: '60%' })
-        step1.to(wrapper, { y: -this.windowHeight / 2 - 100, duration: 3 })
-        step1.fromTo(wrapper, { opacity: 0.3, borderRadius: "100%", height: this.windowWidth }, { y: '-60%', duration: 3, borderRadius: "0%", opacity: 1, height: '100vh' })
+        step1.to(wrapper, { y: -this.windowHeight / 2, duration: 3 })
+        step1.fromTo(wrapper, { opacity: 0.3, borderRadius: "100%", height:  window.innerWidth }, { y: '-60%', duration: 3, borderRadius: "0%", opacity: 1, height: '100vh' })
         step1.to(".hero", {
             y: -this.windowHeight / 2, opacity: 0, ease: "none", duration: 4,
         }, '-=6')
@@ -103,7 +99,6 @@ var app = new Vue({
                 pin: true,
                 pinSpacing: true,
                 scrub: true,
-
             }
         })
         gsap.set('.front-page-item-new', { opacity: 0, yPercent: 20 })
@@ -121,10 +116,8 @@ var app = new Vue({
             }
         });
         progressTl.to('.progress__bar', { height: '100%', transformOrigin: "0px 0px" });
-
     },
     created() {
-
     },
     components: {
         'carousel-3d': Carousel3d.Carousel3d,
@@ -132,10 +125,10 @@ var app = new Vue({
     },
     methods: {
         resizeElements() {
-            // alert('re')
             this.windowWidth = window.innerWidth;
             this.windowHeight = document.getElementById('sizeRef').clientHeight
-            //    this.slideSize = window.innerWidth   
+            let wrapper = document.getElementById('videoSection')
+        gsap.set(wrapper, { height:  window.innerWidth })
         },
         playClick() {
             this.showPlay = false
