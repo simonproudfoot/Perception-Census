@@ -6,6 +6,10 @@ body {
     /* W3C */
 }
 
+
+:root {
+    scroll-behavior: smooth;
+}
 .psButton.large{
     padding: 25px 45px;
     font-size: 1.4em;

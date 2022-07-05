@@ -44,6 +44,7 @@ var app = new Vue({
     mounted() {
 
         //spin button
+
         gsap.to('.play-button', {rotation:"360", ease:Linear.easeNone, repeat:-1})
         // header step 1
         let video = document.getElementById('player')
