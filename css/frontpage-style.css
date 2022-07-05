@@ -119,12 +119,19 @@ body {
     width: 100%;
     position: relative;
     overflow: hidden;
-    background-image: url('../img/background-1.jpeg');
+    background-image: url('../img/back-top.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: bottom center;
 }
 
-
+#carousel{
+    background-image: url('../img/back-bottom.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    
+}
 
 .front-page-item-new {
     position: absolute;
