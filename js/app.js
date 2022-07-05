@@ -150,6 +150,7 @@ var app = new Vue({
     methods: {
 
         resizeElements() {
+            location.reload();
             this.windowWidth = window.innerWidth;
             this.windowHeight = document.getElementById('sizeRef').clientHeight
             let wrapper = document.getElementById('videoSection')
