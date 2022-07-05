@@ -63,7 +63,7 @@ var app = new Vue({
         let wrapper = document.getElementById('videoSection')
         let step1 = gsap.timeline({
             scrollTrigger: {
-                // toggleActions: 'play pause resume pause',
+              
                 trigger: '#container',
                 start: 'top top',
                 end: '+=' + this.windowHeight * 3,
@@ -74,6 +74,7 @@ var app = new Vue({
                     video.play()
                     video.currentTime = 0
                     this.showPlay = true
+                    step1.set('.loading-center',{opacity: 0})
                 },
                 onLeave: () => {
                     video.pause()
@@ -84,11 +85,11 @@ var app = new Vue({
                 onEnterBack: () => {
                     video.play()
                     this.showPlay = true
+                    step1.set('.loading-center',{opacity: 1})
                 },
             }
         })
         gsap.set(wrapper, { top: '60%' })
-        step1.to('.loading-center',{opacity: 0, duration: 0.5})
         step1.to(wrapper, { y: -this.windowHeight / 2, duration: 3 })
         step1.fromTo(wrapper, { opacity: 0.3, borderRadius: "100%", height: window.innerWidth }, { y: '-60%', duration: 3, borderRadius: "0%", opacity: 1, height: '100vh' })
         step1.to(".hero", {
@@ -108,6 +109,8 @@ var app = new Vue({
                 pin: true,
                 pinSpacing: true,
                 scrub: true,
+
+                
             }
         })
         
