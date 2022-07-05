@@ -106,7 +106,7 @@ var app = new Vue({
         })
         gsap.set('.front-page-item-new', { opacity: 0, yPercent: 20 })
         step2.to('.front-page-item-new', { yPercent: 0, stagger: 2, opacity: 1, delay: 0, duration: 1 })
-        step2.to('.front-page-item-new', { yPercent: -20, stagger: 2, opacity: 0, duration: 1, }, '-=1')
+        step2.to('.front-page-item-new', { yPercent: -20, stagger: 2, opacity: 0, duration: 1, }, '-=2')
         // progress bar
         let progressTl = gsap.timeline({
             scrollTrigger: {
