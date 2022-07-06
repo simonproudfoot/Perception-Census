@@ -228,6 +228,8 @@ header {
 
 
 
+
+
 .carousel-3d-controls a {
     background: rgb(142, 84, 233) !important;
     background: linear-gradient(95deg, rgba(142, 84, 233, 1) 0%, rgba(71, 118, 230, 1) 100%) !important;
@@ -421,3 +423,6 @@ video::-webkit-media-text-track-display {
     }
 }
 
+.carousel-3d-slide.current {
+    transform: translateX(0) translateZ(0) rotateY(0deg) !important;
+}
