@@ -41,6 +41,7 @@ header {
     position: relative;
     width: 100%;
     padding: 2em;
+    height: 100vh;
 }
 
 .hero {

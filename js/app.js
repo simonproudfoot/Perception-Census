@@ -130,6 +130,7 @@ var app = new Vue({
         });
         progressTl.to('.progress__bar', { height: '100%', transformOrigin: "0px 0px" });
 
+    
     },
 
     components: {
